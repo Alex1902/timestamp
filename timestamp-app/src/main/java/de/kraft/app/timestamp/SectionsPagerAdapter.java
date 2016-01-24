@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +65,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends ListFragment
+    public static class PlaceholderFragment extends Fragment
     {
         ArrayList<HashMap<String, String>> list;
 
@@ -124,10 +123,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter
             temp3.put( FOURTH_COLUMN, "Unmarried" );
             list.add( temp3 );
 
-            ListViewAdapter adapter = new ListViewAdapter( this, list );
+            ListViewAdapter adapter = new ListViewAdapter( this.getActivity( ), list );
             listView.setAdapter( adapter );
-
-            setListAdapter( adapter );
 
             listView.setOnItemClickListener( new AdapterView.OnItemClickListener( )
             {

@@ -1,6 +1,6 @@
 package de.kraft.app.timestamp;
 
-import android.support.v4.app.ListFragment;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +16,16 @@ public class ListViewAdapter extends BaseAdapter
 {
 
     public ArrayList<HashMap<String, String>> list;
-    ListFragment fragment;
+    Activity activity;
     TextView txtFirst;
     TextView txtSecond;
     TextView txtThird;
     TextView txtFourth;
 
-    public ListViewAdapter( ListFragment fragment, ArrayList<HashMap<String, String>> list )
+    public ListViewAdapter( Activity activity, ArrayList<HashMap<String, String>> list )
     {
         super( );
-        this.fragment = fragment;
+        this.activity = activity;
         this.list = list;
     }
 
@@ -57,7 +57,7 @@ public class ListViewAdapter extends BaseAdapter
         // TODO Auto-generated method stub
 
 
-        LayoutInflater inflater = fragment.getLayoutInflater( null );
+        LayoutInflater inflater = activity.getLayoutInflater( );
 
         if ( convertView == null )
         {
