@@ -1,13 +1,13 @@
 package de.kraft.app.timestamp;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.view.*;
+import android.view.Menu;
+import android.view.MenuItem;
 
 
 public class TimeStamp extends ActionBarActivity implements ActionBar.TabListener
@@ -22,10 +22,6 @@ public class TimeStamp extends ActionBarActivity implements ActionBar.TabListene
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     ViewPager mViewPager;
 
     @Override
@@ -38,8 +34,7 @@ public class TimeStamp extends ActionBarActivity implements ActionBar.TabListene
         final ActionBar actionBar = getSupportActionBar( );
         actionBar.setNavigationMode( ActionBar.NAVIGATION_MODE_TABS );
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        // adapter that will return a fragment for each sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter( getSupportFragmentManager( ) );
 
         // Set up the ViewPager with the sections adapter.

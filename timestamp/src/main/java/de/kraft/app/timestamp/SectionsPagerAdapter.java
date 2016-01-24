@@ -4,12 +4,20 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 import org.joda.time.LocalDate;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+
+import static de.kraft.app.timestamp.Constants.*;
 
 
 /**
@@ -58,8 +66,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment
+    public static class PlaceholderFragment extends ListFragment
     {
+        ArrayList<HashMap<String, String>> list;
+
+
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -87,7 +98,47 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter
         public View onCreateView( LayoutInflater inflater, ViewGroup container,
                                   Bundle savedInstanceState )
         {
-            View rootView = inflater.inflate( R.layout.fragment_time_stamp, container, false );
+            final View rootView = inflater.inflate( R.layout.fragment_time_stamp, container, false );
+            ListView listView = (ListView) rootView.findViewById( R.id.timeList );
+
+            list = new ArrayList<HashMap<String, String>>( );
+
+            HashMap<String, String> temp = new HashMap<String, String>( );
+            temp.put( FIRST_COLUMN, "Ankit Karia" );
+            temp.put( SECOND_COLUMN, "Male" );
+            temp.put( THIRD_COLUMN, "22" );
+            temp.put( FOURTH_COLUMN, "Unmarried" );
+            list.add( temp );
+
+            HashMap<String, String> temp2 = new HashMap<String, String>( );
+            temp2.put( FIRST_COLUMN, "Rajat Ghai" );
+            temp2.put( SECOND_COLUMN, "Male" );
+            temp2.put( THIRD_COLUMN, "25" );
+            temp2.put( FOURTH_COLUMN, "Unmarried" );
+            list.add( temp2 );
+
+            HashMap<String, String> temp3 = new HashMap<String, String>( );
+            temp3.put( FIRST_COLUMN, "Karina Kaif" );
+            temp3.put( SECOND_COLUMN, "Female" );
+            temp3.put( THIRD_COLUMN, "31" );
+            temp3.put( FOURTH_COLUMN, "Unmarried" );
+            list.add( temp3 );
+
+            ListViewAdapter adapter = new ListViewAdapter( this, list );
+            listView.setAdapter( adapter );
+
+            setListAdapter( adapter );
+
+            listView.setOnItemClickListener( new AdapterView.OnItemClickListener( )
+            {
+                @Override
+                public void onItemClick( AdapterView<?> parent, final View view, int position, long id )
+                {
+                    int pos = position + 1;
+                    Toast.makeText( PlaceholderFragment.this.getActivity( ), Integer.toString( pos ) + " Clicked", Toast.LENGTH_SHORT ).show( );
+                }
+
+            } );
             return rootView;
         }
     }
