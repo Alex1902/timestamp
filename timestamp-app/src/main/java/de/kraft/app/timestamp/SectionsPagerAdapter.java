@@ -103,24 +103,24 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter
             list = new ArrayList<HashMap<String, String>>( );
 
             HashMap<String, String> temp = new HashMap<String, String>( );
-            temp.put( FIRST_COLUMN, "Ankit Karia" );
-            temp.put( SECOND_COLUMN, "Male" );
-            temp.put( THIRD_COLUMN, "22" );
-            temp.put( FOURTH_COLUMN, "Unmarried" );
+            temp.put( FIRST_COLUMN, "1" );
+            temp.put( SECOND_COLUMN, "07:30" );
+            temp.put( THIRD_COLUMN, "16:30" );
+            temp.put( FOURTH_COLUMN, "0.45" );
             list.add( temp );
 
             HashMap<String, String> temp2 = new HashMap<String, String>( );
-            temp2.put( FIRST_COLUMN, "Rajat Ghai" );
-            temp2.put( SECOND_COLUMN, "Male" );
-            temp2.put( THIRD_COLUMN, "25" );
-            temp2.put( FOURTH_COLUMN, "Unmarried" );
+            temp2.put( FIRST_COLUMN, "2" );
+            temp2.put( SECOND_COLUMN, "07:45" );
+            temp2.put( THIRD_COLUMN, "16:45" );
+            temp2.put( FOURTH_COLUMN, "0.45" );
             list.add( temp2 );
 
             HashMap<String, String> temp3 = new HashMap<String, String>( );
-            temp3.put( FIRST_COLUMN, "Karina Kaif" );
-            temp3.put( SECOND_COLUMN, "Female" );
-            temp3.put( THIRD_COLUMN, "31" );
-            temp3.put( FOURTH_COLUMN, "Unmarried" );
+            temp3.put( FIRST_COLUMN, "3" );
+            temp3.put( SECOND_COLUMN, "08:00" );
+            temp3.put( THIRD_COLUMN, "17:00" );
+            temp3.put( FOURTH_COLUMN, "0.45" );
             list.add( temp3 );
 
             ListViewAdapter adapter = new ListViewAdapter( this.getActivity( ), list );
