@@ -1,5 +1,6 @@
 package de.kraft.app.timestamp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 
 public class TimeStamp extends ActionBarActivity implements ActionBar.TabListener
 {
+    private static Context applicationContext;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -67,6 +69,7 @@ public class TimeStamp extends ActionBarActivity implements ActionBar.TabListene
                             .setTabListener( this ) );
         }
         mViewPager.setCurrentItem( 1 );
+        applicationContext = getApplicationContext( );
     }
 
 
@@ -113,4 +116,8 @@ public class TimeStamp extends ActionBarActivity implements ActionBar.TabListene
     {
     }
 
+    public static Context getTimeStampApplicationContext( )
+    {
+        return applicationContext;
+    }
 }
